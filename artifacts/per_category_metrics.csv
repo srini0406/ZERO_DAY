@@ -1,0 +1,11 @@
+category,total,detected_attack,detection_rate_pct,breakdown
+Analysis,677,673,99.40915805022156,"Benign Novel Behavior: 1, CNN+Quantum: Attack: 673, CNN: Normal: 3"
+Backdoor,583,574,98.45626072041166,"CNN+Quantum: Attack: 574, CNN: Normal: 9"
+Dos,4089,3946,96.50281242357545,"Benign Novel Behavior: 3, CNN+Quantum: Attack: 3937, CNN: Normal: 140, Malicious Attack: 7, Zero-Day Attack: 2"
+Exploits,11132,10599,95.21200143729787,"Benign Novel Behavior: 3, CNN+Quantum: Attack: 10582, CNN: Normal: 530, Malicious Attack: 5, Zero-Day Attack: 12"
+Fuzzers,6062,2265,37.36390630155064,"CNN+Quantum: Attack: 2265, CNN: Normal: 3797"
+Generic,18871,18823,99.74564146044195,"CNN+Quantum: Attack: 18822, CNN: Normal: 48, Zero-Day Attack: 1"
+Normal,37000,3089,8.348648648648648,"Benign Novel Behavior: 2, CNN+Quantum: Attack: 3087, CNN: Normal: 33909, Malicious Attack: 2"
+Reconnaissance,3496,3194,91.36155606407323,"CNN+Quantum: Attack: 3194, CNN: Normal: 302"
+Shellcode,378,328,86.77248677248677,"CNN+Quantum: Attack: 328, CNN: Normal: 50"
+Worms,44,40,90.9090909090909,"CNN+Quantum: Attack: 40, CNN: Normal: 4"

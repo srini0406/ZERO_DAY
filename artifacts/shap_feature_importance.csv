@@ -1,0 +1,11 @@
+rank,feature,description,mean_abs_shap
+1,sttl,source packet time-to-live (sttl),0.09716471170473309
+2,dttl,destination time-to-live (dttl),0.09076082646818433
+3,dur,flow connection duration (dur),0.02153336795320023
+4,dmean,mean destination packet size (dmean),0.00880083356314013
+5,smean,mean source packet size (smean),0.0070419543382064685
+6,sload,source bit throughput (sload),0.002314024955528582
+7,rate,packet transmission rate (rate),0.002159175273285529
+8,dload,destination bit throughput (dload),0.0017315639812949552
+9,sbytes,source-transmitted byte volume (sbytes),0.0014219903640188204
+10,dbytes,destination response byte volume (dbytes),0.0010768301366149496

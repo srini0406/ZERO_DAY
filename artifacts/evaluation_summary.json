@@ -1,0 +1,117 @@
+{
+  "test_samples": 82332,
+  "metrics_pipeline": {
+    "accuracy": 0.9030874993927027,
+    "precision": 0.9290390756012956,
+    "recall": 0.892129180270008,
+    "f1_score": 0.9102100986912438,
+    "specificity": 0.9165135135135135,
+    "fpr": 0.08348648648648649,
+    "fnr": 0.10787081972999206,
+    "confusion_matrix": {
+      "tn": 33911,
+      "fp": 3089,
+      "fn": 4890,
+      "tp": 40442
+    }
+  },
+  "ablation": [
+    {
+      "Configuration": "1. CNN-Only (Stage 2)",
+      "Accuracy": 0.9031482291211194,
+      "Precision": 0.9290078089113459,
+      "Recall": 0.8922835965763699,
+      "F1-Score": 0.9102754523359439,
+      "FPR": 0.08354054054054054,
+      "TP": 40449,
+      "FP": 3091,
+      "TN": 33909,
+      "FN": 4883,
+      "Zero-Day Purity": "N/A"
+    },
+    {
+      "Configuration": "2. CNN + Quantum (Stage 2+3)",
+      "Accuracy": 0.9018243210416363,
+      "Precision": 0.9288296378163063,
+      "Recall": 0.8898791140915909,
+      "F1-Score": 0.9089372824262362,
+      "FPR": 0.08354054054054054,
+      "TP": 40340,
+      "FP": 3091,
+      "TN": 33909,
+      "FN": 4992,
+      "Zero-Day Purity": "N/A"
+    },
+    {
+      "Configuration": "3. Full Hybrid (CNN+Q+DBSCAN)",
+      "Accuracy": 0.9030874993927027,
+      "Precision": 0.9290390756012956,
+      "Recall": 0.892129180270008,
+      "F1-Score": 0.9102100986912438,
+      "FPR": 0.08348648648648649,
+      "TP": 40442,
+      "FP": 3089,
+      "TN": 33911,
+      "FN": 4890,
+      "Zero-Day Purity": "100.0% (15/15)"
+    }
+  ],
+  "zero_day_worms": {
+    "test_set_worms": {
+      "total": 44,
+      "metric_2a_cnn_quantum_direct_attack": 40,
+      "metric_2b_reached_uncertain_zone": 0,
+      "metric_2c_zero_day_attack_novelty": 0,
+      "cleared_normal": 4
+    },
+    "heldout_train_worms": {
+      "total": 130,
+      "metric_2a_cnn_quantum_direct_attack": 128,
+      "metric_2b_reached_uncertain_zone": 0,
+      "metric_2c_zero_day_attack_novelty": 0,
+      "cleared_normal": 2
+    }
+  },
+  "feature_tradeoff": {
+    "restricted_top_10": {
+      "features": [
+        "sbytes",
+        "sttl",
+        "dbytes",
+        "dttl",
+        "rate",
+        "sload",
+        "dur",
+        "smean",
+        "dmean",
+        "dload"
+      ],
+      "nature": "Analyst-interpretable packet/flow variables only (no aggregated flow-counters)",
+      "test_accuracy": 0.7989,
+      "test_f1": 0.8418
+    },
+    "unrestricted_top_10": {
+      "features": [
+        "sbytes",
+        "sttl",
+        "dbytes",
+        "ct_state_ttl",
+        "dttl",
+        "rate",
+        "smean",
+        "sload",
+        "dur",
+        "dmean"
+      ],
+      "nature": "Includes aggregated state counter 'ct_state_ttl' (MI rank 4, non-interpretable at packet level)",
+      "test_accuracy": 0.8151,
+      "test_f1": 0.8539
+    },
+    "difference": {
+      "accuracy_gain_unrestricted": 0.0162,
+      "f1_gain_unrestricted": 0.0121,
+      "interpretability_tradeoff": "Sacrificed only 1.62% accuracy to gain 100% packet-level explainability for SOC analysts.",
+      "methodological_note": "These trade-off metrics were computed from an isolated 3-epoch comparison benchmark to measure the marginal delta of ct_state_ttl vs dload; they are not identical to the full Stage 2 CNN pipeline (90.31% Accuracy)."
+    }
+  }
+}
