@@ -602,10 +602,9 @@ with tab1:
     with st.expander("📋 Inspect Raw Network Flow Attributes (Packet Headers & Rates)", expanded=False):
         inspect_cols = ["proto", "service", "state", "dur", "spkts", "dpkts", "sbytes", "dbytes", "rate", "sttl", "dttl", "sload", "dload"]
         available_cols = [c for c in inspect_cols if c in active_row.index]
-        flow_df = pd.DataFrame([active_row[available_cols].to_dict()]).T
-        flow_df.columns = ["Observed Value"]
-        flow_df.index.name = "Flow Attribute"
-        st.dataframe(flow_df, use_container_width=True)
+        flow_dict = {col: str(active_row[col]) for col in available_cols}
+        flow_df = pd.DataFrame(list(flow_dict.items()), columns=["Flow Attribute", "Observed Value"]).set_index("Flow Attribute")
+        st.dataframe(flow_df)
 
     st.markdown("<div style='height: 14px;'></div>", unsafe_allow_html=True)
 
